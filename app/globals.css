@@ -2661,7 +2661,7 @@ button:focus-visible {
   .member-tabs button { padding: 1px; }
   .member-tabs button > span { width: 25px; height: 25px; font-size: 0.43rem; }
 
-  .commitment-copy { top: 37%; left: 20px; width: calc(100% - 40px); transform: translateY(-50%); }
+  .commitment-copy { top: 42%; left: 20px; width: calc(100% - 40px); transform: translateY(-50%); }
   .commitment-copy .scene-kicker { font-size: 0.47rem; }
   .commitment-copy h2 { margin-top: 17px; font-size: clamp(3.25rem, 14vw, 5.1rem); }
   .commitment-copy > p { width: 73%; margin-top: 16px; font-size: 0.67rem; line-height: 1.5; }
@@ -2706,7 +2706,7 @@ button:focus-visible {
   .member-copy > p { margin-top: 8px; }
   .member-copy > small { display: none; }
   .member-switcher { bottom: 52px; }
-  .commitment-copy { top: 34%; }
+  .commitment-copy { top: 39%; }
   .commitment-copy h2 { font-size: 3.15rem; }
   .commitment-copy > p { display: none; }
   .status-board { bottom: 94px; }
