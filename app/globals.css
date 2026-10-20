@@ -1738,9 +1738,11 @@ button:focus-visible {
 
 .member-switcher { right: 6.5vw; bottom: clamp(76px, 9vh, 102px); }
 .member-tabs {
+  min-width: 0;
+  overflow-x: auto;
   display: grid;
   flex: 1;
-  grid-template-columns: repeat(11, minmax(48px, 1fr));
+  grid-template-columns: repeat(14, minmax(48px, 1fr));
   gap: 5px;
 }
 
@@ -2657,7 +2659,7 @@ button:focus-visible {
   .member-tags { display: none; }
   .member-copy > small { margin-top: 13px; font-size: 0.42rem; }
   .member-switcher { right: 34px; bottom: 61px; left: 20px; gap: 5px; }
-  .member-tabs { gap: 1px; overflow: hidden; grid-template-columns: repeat(11, minmax(24px, 1fr)); }
+  .member-tabs { gap: 1px; overflow-x: auto; grid-template-columns: repeat(14, minmax(27px, 1fr)); }
   .member-tabs button { padding: 1px; }
   .member-tabs button > span { width: 25px; height: 25px; font-size: 0.43rem; }
 

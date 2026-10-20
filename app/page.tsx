@@ -180,9 +180,9 @@ const members = [
     focus: ["Divulgação", "Redes", "Transparência"],
   },
   {
-    name: "Em definição",
+    name: "Karollyne",
     role: "Coordenação Educacional",
-    initials: "?",
+    initials: "K",
     accent: "#c5c8d0",
     description: "Acompanha demandas de aprendizagem e aproxima os alunos de oportunidades educacionais.",
     focus: ["Aprendizagem", "Oportunidades", "Escuta"],
@@ -194,6 +194,42 @@ const members = [
     accent: "#58dc72",
     description: "Lidera projetos de sustentabilidade, reciclagem e cuidado com os espaços.",
     focus: ["Sustentabilidade", "Reciclagem", "Cuidado"],
+  },
+  {
+    "name": "Gabriely",
+    "role": "Suplente 1",
+    "initials": "G",
+    "accent": "#9a58ff",
+    "description": "Apoia as atividades da equipe e substitui integrantes quando necessário.",
+    "focus": [
+      "Apoio",
+      "Participação",
+      "Continuidade"
+    ]
+  },
+  {
+    "name": "Gabriely Fer.",
+    "role": "Suplente 2",
+    "initials": "GF",
+    "accent": "#ff63ad",
+    "description": "Apoia as atividades da equipe e substitui integrantes quando necessário.",
+    "focus": [
+      "Apoio",
+      "Participação",
+      "Continuidade"
+    ]
+  },
+  {
+    "name": "Gustavo",
+    "role": "Suplente 3",
+    "initials": "G",
+    "accent": "#2d8cff",
+    "description": "Apoia as atividades da equipe e substitui integrantes quando necessário.",
+    "focus": [
+      "Apoio",
+      "Participação",
+      "Continuidade"
+    ]
   },
   {
     name: "Karina",
@@ -540,7 +576,7 @@ export default function Home() {
           <div className="team-shade" aria-hidden="true" />
           <div className="team-topline">
             <span className="scene-kicker">05 / 06 — QUEM FAZ ACONTECER</span>
-            <span className="team-count"><i /> 11 PESSOAS • UMA DIREÇÃO</span>
+            <span className="team-count"><i /> 14 PESSOAS • UMA DIREÇÃO</span>
           </div>
 
           <div className="member-editorial">
