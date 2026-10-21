@@ -1,19 +1,37 @@
 # União Avanço Jovem — U.A.J.
 
-Site oficial da chapa **União Avanço Jovem**, criada para representar os alunos da Escola Enny Tereza Longo Fracaro com participação, transparência e ação.
+Site da chapa União Avanço Jovem, com 20 propostas e 14 integrantes com avatares personalizados.
 
-## Site no ar
+**Site:** https://spectrepulse01.github.io/Uni-o-Avan-o-Jovem-/
 
-**[Acessar o site da U.A.J.](https://uniao-avanco-jovem.grand-finch-8395.chatgpt.site)**
+## Desenvolvimento
 
-## O projeto
+Requer Node.js 22 ou superior.
 
-- Experiência em tela cheia com transições fluidas
-- Apresentação da bandeira oficial
-- Sete propostas detalhadas
-- Integrantes e funções da chapa
-- Layout responsivo e otimizado para celular
+```sh
+npm ci
+npm run dev
+```
 
-## Tecnologias
+## Publicação
 
-Next.js, React, TypeScript, CSS e Vinext/Cloudflare.
+O GitHub Pages publica a pasta `docs` da branch `main`. Após editar o código:
+
+```sh
+npm run build:pages
+```
+
+Envie o código e a pasta `docs` atualizada ao GitHub. O endereço permanece o mesmo.
+
+Para Vercel: framework Vite, comando `npm run build`, diretório de saída `dist`.
+
+## Recursos
+
+- Seis seções com transições, animação 3D e alternativa sem WebGL.
+- Propostas detalhadas, organizadas por facilidade estimada de execução.
+- Navegação das propostas e membros pelas teclas esquerda/direita e gestos no celular.
+- Vídeos responsivos da bandeira e avatares com transparência.
+
+As áreas de envio de ideias, reclamações e acompanhamento estão descritas como propostas; esta versão apresenta a chapa e seu programa.
+
+Tecnologias: React, TypeScript, Vite, Motion, Three.js e GSAP.
