@@ -1,0 +1,9 @@
+import { neon } from '@neondatabase/serverless';
+import crypto from 'node:crypto';
+let schemaReady=false;
+export function getSql(){const u=process.env.DATABASE_URL;if(!u){const e=new Error('DATABASE_URL não configurada.');e.code='CONFIG_ERROR';throw e}return neon(u)}
+export async function ensureSchema(){if(schemaReady)return;const sql=getSql();await sql`CREATE TABLE IF NOT EXISTS gremio_votes (id BIGSERIAL PRIMARY KEY, ra_hash TEXT UNIQUE NOT NULL, chapa TEXT NOT NULL CHECK (chapa IN ('15','100')), created_at TIMESTAMPTZ NOT NULL DEFAULT NOW())`;schemaReady=true}
+export function normalizeAndHashRa(ra,digito){const r=String(ra??'').trim(),d=String(digito??'').trim().toUpperCase();if(!/^\d{1,9}$/.test(r)||!/^[0-9A-Z]{1,2}$/.test(d)){const e=new Error('RA ou dígito inválido.');e.code='INVALID_RA';throw e}const s=process.env.RA_HASH_SECRET;if(!s||s.length<16){const e=new Error('RA_HASH_SECRET não configurado.');e.code='CONFIG_ERROR';throw e}return crypto.createHmac('sha256',s).update(`${r}-${d}`).digest('hex')}
+export function adminIsValid(user,password){const eu=process.env.ADMIN_USER||'admin',ep=process.env.ADMIN_PASSWORD||'';if(!ep)return false;const a=Buffer.from(String(user??'')),b=Buffer.from(eu),c=Buffer.from(String(password??'')),d=Buffer.from(ep);return a.length===b.length&&c.length===d.length&&crypto.timingSafeEqual(a,b)&&crypto.timingSafeEqual(c,d)}
+export async function getResults(){const sql=getSql(),rows=await sql`SELECT COUNT(*) FILTER (WHERE chapa='15')::int AS chapa_15, COUNT(*) FILTER (WHERE chapa='100')::int AS chapa_100, COUNT(*)::int AS total FROM gremio_votes`,r=rows[0]||{};return {counts:{'15':Number(r.chapa_15||0),'100':Number(r.chapa_100||0)},total:Number(r.total||0)}}
+export function sendJson(res,status,payload){res.setHeader('Content-Type','application/json; charset=utf-8');res.setHeader('Cache-Control','no-store, max-age=0');res.status(status).json(payload)}
