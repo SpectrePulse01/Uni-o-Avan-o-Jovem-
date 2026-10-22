@@ -291,6 +291,22 @@ export const proposals = [
   },
   {
     "number": "19",
+    "title": "Olimpíadas do Conhecimento",
+    "category": "Ciência, tecnologia & infraestrutura",
+    "accent": "#31c7ff",
+    "art": "./proposals/olimpiadas-conhecimento.webp",
+    "summary": "Incentivo e preparação para competições nacionais durante as aulas, somente se conseguirmos verba.",
+    "how": "Com verba disponível e em parceria com os professores, incentivar a participação e integrar a preparação para olimpíadas do conhecimento às aulas da grade regular. Os recursos também poderão apoiar inscrições em provas que cobram taxas, como competições nacionais de Biologia.",
+    "benefits": [
+      "Preparação integrada às aulas",
+      "Incentivo à participação em competições nacionais",
+      "Apoio a inscrições pagas, conforme a verba disponível"
+    ],
+    "extra": "Esta proposta só poderá ser realizada se conseguirmos verba. O apoio às inscrições dependerá dos recursos obtidos, e a preparação durante as aulas será combinada com a equipe pedagógica.",
+    "artAlt": "Troféu acadêmico, medalha, livro, prova e modelo de DNA para olimpíadas do conhecimento"
+  },
+  {
+    "number": "20",
     "title": "Tecnologia e infraestrutura",
     "category": "Ciência, tecnologia & infraestrutura",
     "accent": "#31c7ff",
