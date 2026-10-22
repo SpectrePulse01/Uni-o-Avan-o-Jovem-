@@ -275,22 +275,6 @@ export const proposals = [
   },
   {
     "number": "18",
-    "title": "Visitas técnicas",
-    "category": "Ciência, tecnologia & infraestrutura",
-    "accent": "#31c7ff",
-    "art": "./proposals/18-visitas.webp",
-    "summary": "Conhecer Institutos Federais e universidades de perto.",
-    "how": "Propor caravanas e intercâmbios de meio período, durante a manhã, com Institutos Federais e universidades.",
-    "benefits": [
-      "Contato com novos cursos",
-      "Troca de experiências",
-      "Aprendizagem fora da sala"
-    ],
-    "extra": "Visitas sujeitas a parceria, transporte e autorizações.",
-    "artAlt": "Transporte escolar em visita a uma instituição de ensino"
-  },
-  {
-    "number": "19",
     "title": "Espaço de convivência",
     "category": "Eventos, cultura & diversão",
     "accent": "#9a58ff",
@@ -306,7 +290,7 @@ export const proposals = [
     "artAlt": "Bancos e mesa em um espaço de convivência escolar"
   },
   {
-    "number": "20",
+    "number": "19",
     "title": "Tecnologia e infraestrutura",
     "category": "Ciência, tecnologia & infraestrutura",
     "accent": "#31c7ff",

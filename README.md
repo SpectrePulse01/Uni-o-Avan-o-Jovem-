@@ -1,6 +1,6 @@
 # União Avanço Jovem — U.A.J.
 
-Site da chapa União Avanço Jovem, com 20 propostas e 14 integrantes com avatares personalizados.
+Site da chapa União Avanço Jovem, com 19 propostas e 14 integrantes com avatares personalizados.
 
 **Site:** https://spectrepulse01.github.io/Uni-o-Avan-o-Jovem-/
 

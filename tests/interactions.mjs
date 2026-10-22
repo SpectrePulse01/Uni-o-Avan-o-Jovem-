@@ -39,7 +39,7 @@ for(let i=0;i<6;i++){
  assert.equal(document.querySelectorAll('.page').length,1,'exactly one page after transition');
 }
 await click(document.querySelectorAll('.desktop-nav button')[3]);
-const titles=["QR Codes pela escola","Mural de avisos","Novas propostas","Feira Jovem","Jornal Escolar","Grêmio Digital","Campanhas de caridade","Liderança em sala","Intervalo cultural","Campeonato de E-sports","Gincana escolar","Cinema na escola","Palestras profissionais","Jogos de Tabuleiro no Intervalo","Feira de Ciências","Festas culturais","Mais pátio no intervalo","Visitas técnicas","Espaço de convivência","Tecnologia e infraestrutura"];
+const titles=["QR Codes pela escola","Mural de avisos","Novas propostas","Feira Jovem","Jornal Escolar","Grêmio Digital","Campanhas de caridade","Liderança em sala","Intervalo cultural","Campeonato de E-sports","Gincana escolar","Cinema na escola","Palestras profissionais","Jogos de Tabuleiro no Intervalo","Feira de Ciências","Festas culturais","Mais pátio no intervalo","Espaço de convivência","Tecnologia e infraestrutura"];
 for(let i=0;i<titles.length;i++){
  await click(document.querySelectorAll('.project-tabs button')[i]);
  assert.equal(select('.proposal-story h1').textContent,titles[i]);
@@ -111,4 +111,4 @@ await click(document.querySelectorAll('.desktop-nav button')[5]);await click(sel
 await click(select('.closing-bottom .action'));assert.equal(select('.page').id,'inicio');
 await act(async()=>root.unmount());window.happyDOM.abort();console.error=originalError;
 assert.deepEqual(errors,[]);
-console.log(`PASS ${mode}: discrete pages, 20 complete proposals, 14 members, all panels, gestures, wraparound, reduced motion and WebGL fallback. Real GPU/layout excluded.`);
+console.log(`PASS ${mode}: discrete pages, 19 complete proposals, 14 members, all panels, gestures, wraparound, reduced motion and WebGL fallback. Real GPU/layout excluded.`);
