@@ -91,7 +91,7 @@ export default function Home(){
          <h1>{selected.title}</h1><p>{selected.summary}</p><Action reduced={reduced} secondary onClick={()=>setPanel('proposal')}>Conhecer a proposta</Action>
         </motion.div>
        </AnimatePresence>
-       <div className="proposal-art"><div className="art-halo"/><span className="art-number" aria-hidden>{selected.number}</span><AnimatePresence mode="wait" initial={false}><motion.img key={selected.art} src={selected.art} alt="" initial={{opacity:0,rotate:reduced?0:-9,scale:reduced?1:.82}} animate={{opacity:1,rotate:0,scale:1}} exit={{opacity:0,rotate:reduced?0:7,scale:reduced?1:.9}} transition={{duration:reduced?0:.45,ease}}/></AnimatePresence><span className="drag-hint">← DESLIZE PARA EXPLORAR →</span></div>
+       <div className="proposal-art"><div className="art-halo"/><span className="art-number" aria-hidden>{selected.number}</span><AnimatePresence mode="wait" initial={false}><motion.img key={selected.art} src={selected.art} alt={selected.artAlt} width={800} height={800} decoding="async" initial={{opacity:0,rotate:reduced?0:-9,scale:reduced?1:.82}} animate={{opacity:1,rotate:0,scale:1}} exit={{opacity:0,rotate:reduced?0:7,scale:reduced?1:.9}} transition={{duration:reduced?0:.45,ease}}/></AnimatePresence><span className="drag-hint">← DESLIZE PARA EXPLORAR →</span></div>
       </div>
       <div className="project-navigation" data-no-page><div className="project-tabs">{proposals.map((p,i)=><button aria-label={`Abrir ${p.title}`} aria-pressed={i===proposal} title={p.title} key={p.number} onClick={()=>switchProposal(i)}>{i===proposal&&<motion.span layoutId="project-marker" className="project-marker" transition={{duration:reduced?0:.35,ease}}/>}<span>{p.number}</span></button>)}</div></div>
      </>}

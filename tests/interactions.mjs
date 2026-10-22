@@ -64,13 +64,13 @@ await act(async()=>{
  const target=select('.proposal-layout');target.dispatchEvent(new window.PointerEvent('pointerdown',{bubbles:true,pointerType:'touch',clientX:250,clientY:250}));target.dispatchEvent(new window.PointerEvent('pointerup',{bubbles:true,pointerType:'touch',clientX:120,clientY:252}));
 });await settle();assert.equal(select('.page').id,'propostas');assert.equal(select('.proposal-story h1').textContent,'Mural de avisos');
 await click(document.querySelectorAll('.desktop-nav button')[4]);
-const names=['Pedro','Gabriel Gentil','Fábio','Gabriel Garrido','Samuel','Yury','Yasmin','Kelvin','Karollyne','Pietro','Gabriely','Gabriela Fernanda','Gustavo','Karina'];
+const names=['Pedro','Gabriel Gentil','Fábio','Gabriel Garrido','Samuel','Yury','Yasmin','Kelvin','Karollyne','Pietro','Gabriely','Gabrielly Fer','Gustavo','Karina'];
 for(let i=0;i<14;i++){
  await click(select('.team-heading .text-link'));
  assert.equal(document.querySelectorAll('.team-list button').length,14);
  const options=document.querySelectorAll('.team-list button');assert.equal(options[i].querySelector('strong').textContent,names[i]);
  await click(options[i]);assert.equal(select('.member-copy h1').textContent.replaceAll(' ',''),names[i].replaceAll(' ',''));
- const personalized=['Pietro','Gabriel Garrido','Gabriela Fernanda','Gustavo','Fábio','Karollyne','Pedro','Gabriel Gentil','Samuel','Yury','Yasmin','Kelvin','Gabriely','Karina'].includes(names[i]);
+ const personalized=['Pietro','Gabriel Garrido','Gabrielly Fer','Gustavo','Fábio','Karollyne','Pedro','Gabriel Gentil','Samuel','Yury','Yasmin','Kelvin','Gabriely','Karina'].includes(names[i]);
  assert.equal(!!document.querySelector('.personal-avatar'),personalized);
  if(personalized)assert.equal(select('.personal-avatar').alt,`Avatar em estilo 3D de ${names[i]}`);
 
