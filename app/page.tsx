@@ -10,6 +10,7 @@ import FlagBackdrop from './FlagBackdrop';
 import {principles,PrincipleIcon,VisionSignal} from './vision';
 import Dialog from './Dialog';
 import {memberAvatars} from './avatars';
+import TermCountdown from './TermCountdown';
 
 type Panel='menu'|'proposal'|'team'|'vision'|'symbol'|'commitment'|null;
 const photos=['./uaj-hero-classroom-v4.webp','./uaj-bandeira-realista-v1.webp','./uaj-vision-council-v4.webp','./uaj-projects-campus-v4.webp','./uaj-team-background-v5.webp','./uaj-hero-classroom-v4.webp'];
@@ -105,6 +106,7 @@ export default function Home(){
      </>}
      {page===5&&<>
        <div className="closing-heading"><Title reduced={reduced} lines={['Prometer menos.',<em>Ouvir mais.</em>,'Fazer acontecer.']}/></div>
+       <TermCountdown/>
        <Reveal reduced={reduced} delay={.45} className="closing-bottom"><p>Algumas propostas dependem de verba e aprovação. Nosso compromisso é tentar de verdade e mostrar cada etapa.</p><button className="text-link" onClick={()=>setPanel('commitment')}>Transparência em cada etapa <span>↗</span></button><Action reduced={reduced} secondary onClick={()=>goto(0)}>Rever desde o início</Action></Reveal>
      </>}
     </motion.section>
