@@ -133,3 +133,9 @@
 @keyframes uaj-ribbon{from{opacity:0}to{opacity:1}}
 .compatible-quiet .compatible-letters,.compatible-quiet .compatible-letter,.compatible-quiet .compatible-ribbon{animation:none}
 .three-stage:not(.stage-visible) .compatible-letters{animation-play-state:paused}
+
+/* Match Luciane's desktop upper-body framing on phones. */
+@media(max-width:760px){
+ .member-art-luciane{overflow:hidden}
+ .member-art-luciane>img{object-position:center top;transform:scale(1.28);transform-origin:center top}
+}
