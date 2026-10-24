@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {build} from 'esbuild';
+import React from 'react';
+import {renderToString} from 'react-dom/server';
+await build({entryPoints:['app/ThreeStage.tsx'],outfile:'tests/.stage-loading.mjs',bundle:true,format:'esm',platform:'node',packages:'external',jsx:'automatic',logLevel:'silent'});
+const {default:ThreeStage}=await import('./.stage-loading.mjs');
+const html=renderToString(React.createElement(ThreeStage,{page:0,reduced:false}));
+assert.ok(html.includes('state-loading'));
+assert.ok(!html.includes('compatible-stage'),'loading must not show provisional SVG letters');
+assert.ok(html.includes('webgl-host'));
+console.log('PASS: initial loading contains no provisional letters.');

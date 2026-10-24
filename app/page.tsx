@@ -71,7 +71,7 @@ export default function Home(){
      {sectionLabel}
      {page===0&&<>
        <div className="hero-heading"><Title reduced={reduced} lines={['A escola vai',<>ouvir <em>nossa</em></>,<em>voz.</em>]}/><Reveal reduced={reduced} delay={.4} className="hero-caption"><span>União que escuta.</span><span>Avanço que acontece.</span></Reveal></div>
-       <Reveal reduced={reduced} delay={.55} className="hero-bottom"><div className="hero-numbers"><button onClick={()=>goto(3)}><b>{proposals.length}</b><span>propostas<br/>possíveis</span></button><i/><button onClick={()=>goto(4)}><b>14</b><span>vozes.<br/>uma direção.</span></button></div><Action reduced={reduced} onClick={()=>goto(1)}>Entrar na experiência</Action></Reveal>
+       <Reveal reduced={reduced} delay={.55} className="hero-bottom"><div className="hero-numbers"><button onClick={()=>goto(3)}><b>{proposals.length}</b><span>propostas<br/>possíveis</span></button><i/><button onClick={()=>goto(4)}><b>{members.length}</b><span>vozes.<br/>uma direção.</span></button></div><Action reduced={reduced} onClick={()=>goto(1)}>Entrar na experiência</Action></Reveal>
        <div className="hero-side-word" aria-hidden>AVANÇO</div>
      </>}
      {page===1&&<>
@@ -96,12 +96,12 @@ export default function Home(){
       <div className="project-navigation" data-no-page><div className="project-tabs">{proposals.map((p,i)=><button aria-label={`Abrir ${p.title}`} aria-pressed={i===proposal} title={p.title} key={p.number} onClick={()=>switchProposal(i)}>{i===proposal&&<motion.span layoutId="project-marker" className="project-marker" transition={{duration:reduced?0:.35,ease}}/>}<span>{p.number}</span></button>)}</div></div>
      </>}
      {page===4&&<>
-       <div className="team-heading"><span className="eyebrow">14 PESSOAS. UMA DIREÇÃO.</span><button className="text-link" onClick={()=>setPanel('team')}>Ver equipe <span>↗</span></button></div>
+       <div className="team-heading"><span className="eyebrow">CHAPA E GESTÃO ESCOLAR. UMA DIREÇÃO.</span><button className="text-link" onClick={()=>setPanel('team')}>Ver equipe <span>↗</span></button></div>
        <div className="member-layout" data-no-page onPointerDown={localStart} onPointerUp={e=>localEnd(e,'member')} onPointerCancel={()=>gesture.current=null}>
         <div className="member-art"><motion.div className="member-aura" animate={{backgroundColor:person.accent}} transition={{duration:reduced?0:.6}}/><motion.img key={person.name} width={500} height={750} className={memberAvatars[person.name]?"personal-avatar":""} src={memberAvatars[person.name]||"./uaj-team-sculpture-v4.webp"} alt={memberAvatars[person.name]?`Avatar em estilo 3D de ${person.name}`:""} draggable={false} decoding="async" initial={{opacity:0}} animate={{opacity:1}} transition={{duration:reduced?0:.35}}/>{!memberAvatars[person.name]&&<motion.span className="member-initials" key={member} initial={{opacity:0,scale:.8}} animate={{opacity:1,scale:1}} transition={{duration:reduced?0:.45}}>{person.initials}</motion.span>}</div>
         <AnimatePresence mode="wait" initial={false}><motion.div key={member} className="member-copy" initial={{opacity:0,y:reduced?0:20}} animate={{opacity:1,y:0}} exit={{opacity:0,y:reduced?0:-12}} transition={{duration:reduced?0:.25,ease}}><span className="member-role">{person.role}</span><h1>{person.name.split(' ')[0]}<small>{person.name.split(' ').slice(1).join(' ')}</small></h1><p>{person.description}</p><div className="member-tags">{person.focus.map(f=><span key={f}>{f}</span>)}</div></motion.div></AnimatePresence>
        </div>
-       <div className="member-navigation" data-no-page><div><b>{String(member+1).padStart(2,'0')}</b><span>/ 14</span><small>UNIÃO AVANÇO JOVEM</small></div></div>
+       <div className="member-navigation" data-no-page><div><b>{String(member+1).padStart(2,'0')}</b><span>/ {members.length}</span><small>UNIÃO AVANÇO JOVEM</small></div></div>
      </>}
      {page===5&&<>
        <div className="closing-heading"><Title reduced={reduced} lines={['Prometer menos.',<em>Ouvir mais.</em>,'Fazer acontecer.']}/></div>

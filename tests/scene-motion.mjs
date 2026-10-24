@@ -20,4 +20,7 @@ f.motion.setMode(0,false);finish();settled(f);assert.equal(f.mono.scale.x,1);f.m
 const interrupted=fixture();interrupted.motion.setMode(0,false);interrupted.motion.setMode(2,false);interrupted.motion.setMode(0,false);finish();settled(interrupted);assert.equal(interrupted.motion.canInteract(),true);interrupted.motion.dispose();
 const reduced=fixture();reduced.motion.setMode(0,true);settled(reduced);assert.equal(reduced.motion.canInteract(),true);reduced.motion.dispose();
 const pause=fixture();pause.motion.setMode(0,false);pause.motion.setMode(0,true);settled(pause);assert.equal(pause.motion.canInteract(),true);pause.motion.dispose();
+const slow=fixture();slow.motion.setMode(0,false);slow.motion.advance(1000);
+assert.ok(Math.abs(slow.letters[0].rotation.x)<=.18,'entrance uses a small tilt');
+slow.motion.advance(2600);settled(slow);assert.equal(slow.motion.canInteract(),true,'a stalled frame must not stretch assembly');slow.motion.dispose();
 gsap.ticker.sleep();console.log('PASS: separated entrance, duplicate initialization, assembly completion, interaction lock, flag transition, navigation interruption and reduced motion.');

@@ -30,6 +30,7 @@ const select=q=>document.querySelector(q);
 await act(async()=>root.render(React.createElement(Home)));await settle();
 assert.equal(select('.experience').classList.contains('reading-mode'),false);
 assert.equal(document.querySelectorAll('.page').length,1);
+assert.equal(select('.state-loading .compatible-stage'),null,'no provisional letters during loading');
 assert.ok(select('.state-fallback .compatible-stage'),'WebGL failure keeps animated UAJ');
 assert.equal(document.querySelectorAll('.compatible-letter').length,3);
 assert.equal(select('.three-stage img'),null,'No mannequin substitutes for the opening');
@@ -64,13 +65,13 @@ await act(async()=>{
  const target=select('.proposal-layout');target.dispatchEvent(new window.PointerEvent('pointerdown',{bubbles:true,pointerType:'touch',clientX:250,clientY:250}));target.dispatchEvent(new window.PointerEvent('pointerup',{bubbles:true,pointerType:'touch',clientX:120,clientY:252}));
 });await settle();assert.equal(select('.page').id,'propostas');assert.equal(select('.proposal-story h1').textContent,'Mural de avisos');
 await click(document.querySelectorAll('.desktop-nav button')[4]);
-const names=['Pedro','Gabriel Gentil','Fábio','Gabriel Garrido','Samuel','Yury','Yasmin','Kelvin','Karollyne','Pietro','Gabriely','Gabrielly Fer','Gustavo','Karina'];
-for(let i=0;i<14;i++){
+const names=['Pedro','Gabriel Gentil','Fábio','Gabriel Garrido','Samuel','Yury','Yasmin','Kelvin','Karollyne','Pietro','Gabriely','Gabrielly Fer','Gustavo','Karina','José Ricardo','Luciane Petrocelli'];
+for(let i=0;i<names.length;i++){
  await click(select('.team-heading .text-link'));
- assert.equal(document.querySelectorAll('.team-list button').length,14);
+ assert.equal(document.querySelectorAll('.team-list button').length,names.length);
  const options=document.querySelectorAll('.team-list button');assert.equal(options[i].querySelector('strong').textContent,names[i]);
  await click(options[i]);assert.equal(select('.member-copy h1').textContent.replaceAll(' ',''),names[i].replaceAll(' ',''));
- const personalized=['Pietro','Gabriel Garrido','Gabrielly Fer','Gustavo','Fábio','Karollyne','Pedro','Gabriel Gentil','Samuel','Yury','Yasmin','Kelvin','Gabriely','Karina'].includes(names[i]);
+ const personalized=['Pietro','Gabriel Garrido','Gabrielly Fer','Gustavo','Fábio','Karollyne','Pedro','Gabriel Gentil','Samuel','Yury','Yasmin','Kelvin','Gabriely','Karina','José Ricardo','Luciane Petrocelli'].includes(names[i]);
  assert.equal(!!document.querySelector('.personal-avatar'),personalized);
  if(personalized)assert.equal(select('.personal-avatar').alt,`Avatar em estilo 3D de ${names[i]}`);
 
@@ -78,10 +79,10 @@ for(let i=0;i<14;i++){
 assert.equal(select('.member-navigation button'),null);
 const press=async(key,target=document.body,extra={})=>{await act(async()=>target.dispatchEvent(new window.KeyboardEvent('keydown',{key,bubbles:true,cancelable:true,...extra})));await settle();};
 await press('ArrowRight');assert.equal(select('.member-copy h1').textContent,'Pedro');
-await press('ArrowLeft');assert.equal(select('.member-copy h1').textContent,'Karina');
-await press('ArrowLeft',document.body,{ctrlKey:true});assert.equal(select('.member-copy h1').textContent,'Karina');
+await press('ArrowLeft');assert.equal(select('.member-copy h1').textContent,'LucianePetrocelli');
+await press('ArrowLeft',document.body,{ctrlKey:true});assert.equal(select('.member-copy h1').textContent,'LucianePetrocelli');
 await click(select('.team-heading .text-link'));
-await press('ArrowRight');assert.equal(select('.member-copy h1').textContent,'Karina');
+await press('ArrowRight');assert.equal(select('.member-copy h1').textContent,'LucianePetrocelli');
 await click(select('[aria-label="Fechar painel"]'));
 await act(async()=>{const target=select('.member-layout');target.dispatchEvent(new window.PointerEvent('pointerdown',{bubbles:true,pointerType:'touch',clientX:250,clientY:250}));target.dispatchEvent(new window.PointerEvent('pointerup',{bubbles:true,pointerType:'touch',clientX:120,clientY:252}));});await settle();
 assert.equal(select('.member-copy h1').textContent,'Pedro');assert.equal(select('.page').id,'equipe');
@@ -111,4 +112,4 @@ await click(document.querySelectorAll('.desktop-nav button')[5]);await click(sel
 await click(select('.closing-bottom .action'));assert.equal(select('.page').id,'inicio');
 await act(async()=>root.unmount());window.happyDOM.abort();console.error=originalError;
 assert.deepEqual(errors,[]);
-console.log(`PASS ${mode}: discrete pages, 20 complete proposals, 14 members, all panels, gestures, wraparound, reduced motion and WebGL fallback. Real GPU/layout excluded.`);
+console.log(`PASS ${mode}: discrete pages, 20 complete proposals, 16 profiles, all panels, gestures, wraparound, reduced motion and WebGL fallback. Real GPU/layout excluded.`);

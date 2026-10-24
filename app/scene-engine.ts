@@ -16,8 +16,10 @@ export function letterShapes() {
 
 export function createScene(host:HTMLElement,onReady:()=>void,onFail:()=>void,onInteractive:(ready:boolean)=>void):Engine {
   const mobile=matchMedia('(pointer:coarse)').matches;
-  const renderer=new T.WebGLRenderer({alpha:true,antialias:true,powerPreference:'default'});
-  renderer.setPixelRatio(Math.min(devicePixelRatio,mobile?1.5:1.8));
+  const memory=(navigator as Navigator & {deviceMemory?:number}).deviceMemory;
+  const lowPower=(memory!==undefined&&memory<=4)||navigator.hardwareConcurrency<=2;
+  const renderer=new T.WebGLRenderer({alpha:true,antialias:!lowPower,powerPreference:'default'});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,lowPower?1:mobile?1.5:1.8));
   renderer.outputColorSpace=T.SRGBColorSpace;
   renderer.toneMapping=T.ACESFilmicToneMapping; renderer.toneMappingExposure=1.35;
   renderer.setClearColor(0x000000,0);
@@ -36,7 +38,7 @@ export function createScene(host:HTMLElement,onReady:()=>void,onFail:()=>void,on
   const colors=[0xe8e8e2,0xe32642,0x236af7];
   const disposables:T.Texture[]=[];
   letterShapes().forEach((shape,i)=>{
-    const geo=new T.ExtrudeGeometry(shape,{depth:.52,bevelEnabled:true,bevelSegments:4,bevelSize:.065,bevelThickness:.065,curveSegments:14,steps:1});
+    const geo=new T.ExtrudeGeometry(shape,{depth:.52,bevelEnabled:true,bevelSegments:lowPower?2:4,bevelSize:.065,bevelThickness:.065,curveSegments:lowPower?8:14,steps:1});
     geo.translate(0,0,-.26);
     const front=new T.MeshStandardMaterial({color:colors[i],metalness:.8,roughness:.22,envMapIntensity:1.6});
     const edge=new T.MeshStandardMaterial({color:colors[i],metalness:.95,roughness:.16,envMapIntensity:2});
@@ -76,6 +78,7 @@ export function createScene(host:HTMLElement,onReady:()=>void,onFail:()=>void,on
   }
   function tick(now:number){
     frame=0;if(disposed||failed||!active||document.hidden)return;
+    choreography.advance(now);
     const dt=Math.min((now-last)/1000||.016,.05);last=now;elapsed+=dt;
     const smoothing=1-Math.exp(-8*dt);rx+=(ty-rx)*smoothing;ry+=(tx-ry)*smoothing;
     rig.rotation.set(rx,ry,quiet?0:Math.sin(elapsed*.45)*.018);
@@ -89,7 +92,7 @@ export function createScene(host:HTMLElement,onReady:()=>void,onFail:()=>void,on
       pos.needsUpdate=true;flagGeo.computeVertexNormals();
     }
     draw();
-    if(!quiet||drag||Math.abs(tx-ry)+Math.abs(ty-rx)>.002||choreography.isAnimating())frame=requestAnimationFrame(tick);
+    if(!frame&&(!quiet||drag||Math.abs(tx-ry)+Math.abs(ty-rx)>.002||choreography.isAnimating()))frame=requestAnimationFrame(tick);
   }
   function wake(){if(!frame&&active&&!document.hidden&&!disposed){last=performance.now();frame=requestAnimationFrame(tick);}}
   function reset(){tx=mode===1?-.15:-.28;ty=mode===1?.04:.13;wake();}

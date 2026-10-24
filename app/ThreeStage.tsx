@@ -18,7 +18,7 @@ export default function ThreeStage({page,reduced}:{page:number;reduced:boolean})
  useEffect(()=>{engine.current?.setMode(page===1?2:page,reduced);},[page,reduced]);
  const active=[0,5].includes(page);
  return <div className={`three-stage stage-${page} ${active?'stage-visible':''} ${interactive?'can-drag':'assembling'} state-${state}`} aria-hidden={!active} inert={!active} data-no-page>
-   {state!=='ready'&&active&&<CompatibleStage key={page} reduced={reduced}/>}
+   {state==='fallback'&&active&&<CompatibleStage key={page} reduced={reduced}/>}
 
    <div className="webgl-host" ref={host} role="img" aria-label={page===1?'Bandeira U.A.J. em 3D, arraste para girar':'Escultura U.A.J. em 3D, arraste para girar'} />
  </div>;

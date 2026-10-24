@@ -442,11 +442,27 @@ export const members = [
   },
   {
     name: "Karina",
-    role: "Direção da chapa",
+    role: "Direção da chapa · Vice-diretora da escola",
     initials: "K",
     accent: "#ff3147",
     description: "Orienta a estratégia e conecta equipe, alunos e gestão escolar.",
     focus: ["Estratégia", "Conexão", "Orientação"],
+  },
+  {
+    name: "José Ricardo",
+    role: "Diretor",
+    initials: "JR",
+    accent: "#31c7ff",
+    description: "Diretor da escola. Integra a gestão escolar que acompanha o Grêmio e mantém o diálogo com a equipe e os alunos.",
+    focus: ["Gestão escolar", "Diálogo", "Acompanhamento"],
+  },
+  {
+    name: "Luciane Petrocelli",
+    role: "Coordenadora pedagógica",
+    initials: "LP",
+    accent: "#ff63ad",
+    description: "Coordenadora pedagógica da escola. Integra a gestão escolar que acompanha o Grêmio, contribuindo para o diálogo entre as ações estudantis e a equipe pedagógica.",
+    focus: ["Gestão escolar", "Orientação pedagógica", "Diálogo"],
   },
 ];
 
