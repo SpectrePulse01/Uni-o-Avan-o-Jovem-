@@ -56,7 +56,7 @@
 .chapter-1 .symbol-heading{margin-top:25px}.chapter-1 .symbol-heading .display-title{font-size:clamp(48px,5.8vw,92px);text-shadow:0 2px 24px #0007}
 .chapter-1 .symbol-heading em{color:#f8efdf;font-weight:400;font-family:Georgia,serif;font-style:italic;letter-spacing:-.05em}
 .chapter-1 .symbol-bottom{width:430px;max-width:47%}.chapter-1 .symbol-bottom p{font-size:14px;color:#ede8df}.chapter-1 .value-line{margin:16px 0 8px}
-.brand-seal{display:block;flex:0 0 43px;width:43px;height:47px;filter:drop-shadow(0 3px 4px #0008)}.brand-seal svg{width:100%;height:100%;display:block}.brand{gap:12px}
+.brand-seal{display:block;flex:0 0 52px;width:52px;height:52px;filter:drop-shadow(0 3px 4px #0008)}.brand-seal svg{width:100%;height:100%;display:block}.brand{gap:12px}
 .vision-signal{position:absolute;right:1%;top:12%;width:35%;height:49%;display:flex;flex-direction:column;justify-content:center;gap:25px;padding:25px;border:1px solid #ffffff14;border-radius:50% 50% 12px 12px;background:radial-gradient(ellipse,#285dbd18,transparent 65%)}
 .signal-kicker{text-align:center;font:9px 'Courier New',monospace;letter-spacing:3px;color:#aaaebc}.signal-wave{height:43%;min-height:35px;display:flex;align-items:center;justify-content:center;gap:clamp(4px,.6vw,9px)}
 .signal-wave i{display:block;width:5px;height:var(--bar);min-height:4px;border-radius:5px;background:linear-gradient(#f5d6bd,#f3364f 60%,#634177);transform-origin:center;animation:voice-breathe 3s ease-in-out infinite;animation-delay:var(--delay)}
@@ -71,7 +71,7 @@
  .flag-cinema-shade{background:linear-gradient(180deg,#050810d6 0%,#05081060 26%,transparent 44%,#05081018 60%,#050810eb 91%)}
  .chapter-1 .symbol-heading{margin-top:22px}.chapter-1 .symbol-heading .display-title{font-size:clamp(32px,9.5vw,55px);line-height:1.03;letter-spacing:-.055em}
  .chapter-1 .symbol-bottom{width:100%;max-width:100%}.chapter-1 .symbol-bottom p{font-size:12px;line-height:1.55;max-width:330px}.chapter-1 .value-line{margin:12px 0 6px;font-size:8px}.chapter-1 .symbol-bottom .text-link{font-size:10px}
- .brand-seal{flex-basis:37px;width:37px;height:42px}
+ .brand-seal{flex-basis:44px;width:44px;height:44px}
  .vision-signal{right:0;left:0;top:47%;width:100%;height:20%;padding:0 18px;border:0;border-radius:0;gap:10px;background:none}.signal-kicker{font-size:7px;letter-spacing:2px}.signal-wave{height:60%;gap:9px}.signal-wave i{width:3px}.signal-caption{font-size:6px;gap:12px}.signal-caption i{width:24px}
  .pillars i{top:21px}.pillars i svg{width:22px;height:22px}.principle-tabs{gap:6px}.principle-tabs button{font-size:10px;padding:9px 10px;gap:5px}
 }

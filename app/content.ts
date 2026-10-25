@@ -449,6 +449,14 @@ export const members = [
     focus: ["Apoio", "Participação", "Continuidade"],
   },
   {
+    name: "Vinícius",
+    role: "Suplente 5",
+    initials: "V",
+    accent: "#31c7ff",
+    description: "Apoia as atividades da equipe e substitui integrantes quando necessário.",
+    focus: ["Apoio", "Participação", "Continuidade"],
+  },
+  {
     name: "Karina",
     role: "Direção da chapa · Vice-diretora da escola",
     initials: "K",
