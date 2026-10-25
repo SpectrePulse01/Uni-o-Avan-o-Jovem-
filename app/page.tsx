@@ -106,7 +106,7 @@ export default function Home(){
      </>}
      {page===5&&<>
        <div className="closing-heading"><Title reduced={reduced} lines={['Prometer menos.',<em>Ouvir mais.</em>,'Fazer acontecer.']}/></div>
-       <TermCountdown/>
+       <TermCountdown reduced={reduced}/>
        <Reveal reduced={reduced} delay={.45} className="closing-bottom"><p>Algumas propostas dependem de verba e aprovação. Nosso compromisso é tentar de verdade e mostrar cada etapa.</p><button className="text-link" onClick={()=>setPanel('commitment')}>Transparência em cada etapa <span>↗</span></button><Action reduced={reduced} secondary onClick={()=>goto(0)}>Rever desde o início</Action></Reveal>
      </>}
     </motion.section>

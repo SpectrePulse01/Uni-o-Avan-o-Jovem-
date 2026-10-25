@@ -441,6 +441,14 @@ export const members = [
     ]
   },
   {
+    name: "Natasha",
+    role: "Suplente 4",
+    initials: "N",
+    accent: "#ff637d",
+    description: "Apoia as atividades da equipe e substitui integrantes quando necessário.",
+    focus: ["Apoio", "Participação", "Continuidade"],
+  },
+  {
     name: "Karina",
     role: "Direção da chapa · Vice-diretora da escola",
     initials: "K",

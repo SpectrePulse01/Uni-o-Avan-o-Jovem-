@@ -10,13 +10,13 @@ export default function ThreeStage({page,reduced}:{page:number;reduced:boolean})
    let cancelled=false;
    import('./scene-engine').then(({createScene})=>{
      if(cancelled||!host.current)return;
-     try{engine.current=createScene(host.current,()=>setState('ready'),()=>setState('fallback'),setInteractive);engine.current.setMode(latest.current.page===1?2:latest.current.page,latest.current.reduced);}
+     try{engine.current=createScene(host.current,()=>setState('ready'),()=>setState('fallback'),setInteractive);engine.current.setMode(latest.current.page===1||latest.current.page===5?2:latest.current.page,latest.current.reduced);}
      catch{setState('fallback');}
    }).catch(()=>{if(!cancelled)setState('fallback');});
    return()=>{cancelled=true;engine.current?.dispose();engine.current=null;};
  },[]);
- useEffect(()=>{engine.current?.setMode(page===1?2:page,reduced);},[page,reduced]);
- const active=[0,5].includes(page);
+ useEffect(()=>{engine.current?.setMode(page===1||page===5?2:page,reduced);},[page,reduced]);
+ const active=page===0;
  return <div className={`three-stage stage-${page} ${active?'stage-visible':''} ${interactive?'can-drag':'assembling'} state-${state}`} aria-hidden={!active} inert={!active} data-no-page>
    {state==='fallback'&&active&&<CompatibleStage key={page} reduced={reduced}/>}
 

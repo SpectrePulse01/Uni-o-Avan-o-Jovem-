@@ -65,13 +65,13 @@ await act(async()=>{
  const target=select('.proposal-layout');target.dispatchEvent(new window.PointerEvent('pointerdown',{bubbles:true,pointerType:'touch',clientX:250,clientY:250}));target.dispatchEvent(new window.PointerEvent('pointerup',{bubbles:true,pointerType:'touch',clientX:120,clientY:252}));
 });await settle();assert.equal(select('.page').id,'propostas');assert.equal(select('.proposal-story h1').textContent,'Mural de avisos');
 await click(document.querySelectorAll('.desktop-nav button')[4]);
-const names=['Pedro','Gabriel Gentil','Fábio','Gabriel Garrido','Samuel','Yury','Yasmin','Kelvin','Karollyne','Pietro','Gabriely','Gabrielly Fer','Gustavo','Karina','José Ricardo','Luciane Petrocelli'];
+const names=['Pedro','Gabriel Gentil','Fábio','Gabriel Garrido','Samuel','Yury','Yasmin','Kelvin','Karollyne','Pietro','Gabriely','Gabrielly Fer','Gustavo','Natasha','Karina','José Ricardo','Luciane Petrocelli'];
 for(let i=0;i<names.length;i++){
  await click(select('.team-heading .text-link'));
  assert.equal(document.querySelectorAll('.team-list button').length,names.length);
  const options=document.querySelectorAll('.team-list button');assert.equal(options[i].querySelector('strong').textContent,names[i]);
  await click(options[i]);assert.equal(select('.member-copy h1').textContent.replaceAll(' ',''),names[i].replaceAll(' ',''));
- const personalized=['Pietro','Gabriel Garrido','Gabrielly Fer','Gustavo','Fábio','Karollyne','Pedro','Gabriel Gentil','Samuel','Yury','Yasmin','Kelvin','Gabriely','Karina','José Ricardo','Luciane Petrocelli'].includes(names[i]);
+ const personalized=['Pietro','Gabriel Garrido','Gabrielly Fer','Gustavo','Fábio','Karollyne','Pedro','Gabriel Gentil','Samuel','Yury','Yasmin','Kelvin','Gabriely','Natasha','Karina','José Ricardo','Luciane Petrocelli'].includes(names[i]);
  assert.equal(!!document.querySelector('.personal-avatar'),personalized);
  if(personalized)assert.equal(select('.personal-avatar').alt,`Avatar em estilo 3D de ${names[i]}`);
 
@@ -112,4 +112,4 @@ await click(document.querySelectorAll('.desktop-nav button')[5]);await click(sel
 await click(select('.closing-bottom .action'));assert.equal(select('.page').id,'inicio');
 await act(async()=>root.unmount());window.happyDOM.abort();console.error=originalError;
 assert.deepEqual(errors,[]);
-console.log(`PASS ${mode}: discrete pages, 20 complete proposals, 16 profiles, all panels, gestures, wraparound, reduced motion and WebGL fallback. Real GPU/layout excluded.`);
+console.log(`PASS ${mode}: discrete pages, 20 complete proposals, 17 profiles, all panels, gestures, wraparound, reduced motion and WebGL fallback. Real GPU/layout excluded.`);
